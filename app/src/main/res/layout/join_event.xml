@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/join_chat"
+    android:background="@color/colorPrimary"
+    tools:context=".JoinEvent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/joinrecyclerview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/joiner_view"
+        app:layout_constraintVertical_bias="0.992" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/joinrecyclerview">
+
+        <EditText
+            android:id="@+id/textsend_join"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/send_join"
+            android:autofillHints="Your message here!"
+            android:hint="@string/your_message_here"
+            android:inputType="text" />
+
+        <ImageButton
+            android:id="@+id/send_join"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:background="@color/colorPrimary"
+            android:contentDescription="@string/send_message"
+            app:srcCompat="@drawable/ic_baseline_send_24" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/joiner_view"
+        android:layout_width="0dp"
+        android:layout_height="190dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/desc_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="53dp"
+            android:layout_marginEnd="178dp"
+            android:text="@string/placeholder" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/ask_questions_concerns_here"
+            android:textColor="#CDCF64"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/approx_loc_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="178dp"
+            android:text="@string/placeholder2" />
+
+        <Button
+            android:id="@+id/join_btn"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="155dp"
+            android:layout_marginEnd="178dp"
+            android:background="#CDCF64"
+            android:text="@string/join" />
+
+        <TextView
+            android:id="@+id/num_ppl_input_joiner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="125dp"
+            android:layout_marginEnd="178dp"
+            android:text="@string/placeholder3" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/host_view"
+        android:layout_width="0dp"
+        android:layout_height="190dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/joinrecyclerview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/you_are_the_host"
+            android:textColor="#CDCF64"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="84dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:gravity="center"
+            android:text="@string/people_interested_in_your_event_may_have_some_questions_please_answer_them" />
+
+        <TextView
+            android:id="@+id/num_ppl_input_host"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="178dp"
+            android:text="@string/placeholder5" />
+
+        <Button
+            android:id="@+id/close_event"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="155dp"
+            android:layout_marginEnd="178dp"
+            android:background="#CDCF64"
+            android:text="@string/close_event" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout >

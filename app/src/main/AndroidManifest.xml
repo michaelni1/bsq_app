@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bsq.bsquared">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <application
+        android:hardwareAccelerated="true"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Bsquared"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="com.bsq.bsquared.HasJoined"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name="com.bsq.bsquared.JoinEvent"
+            android:label="All the details"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.bsq.bsquared.CreateEvent"
+            android:label="Create your event" />
+        <activity
+            android:name="com.bsq.bsquared.EventScreen"
+            android:label="Events right now" />
+        <activity
+            android:name="com.bsq.bsquared.SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.bsq.bsquared.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.bsq.bsquared.Chatroom" />
+
+        <meta-data android:name="com.here.android.maps.appid" android:value="BpeF4iIXWGOlUoRGGiMT"/>
+        <meta-data android:name="com.here.android.maps.apptoken" android:value="Z-a1IF4_HgIclsjbI9Jwcg"/>
+        <meta-data android:name="com.here.android.maps.license.key" android:value="Blpeh9g4QG4UGlpONhrCsXI75qcs6F9wkTct4VXpZl4ilyAh2QiLhAX6D21j7endkRbNwJtCH1we9OKjbaXI0rq4IXcjeWMBlOC4uLEOBQJzPqycodwnTMHfaO8BX7daR2yoAzlzEwWIO/XWtOfL/HT7Rh8EOtisVYLM0quDQdKJr4Lk+N+plhYQgDSTzLaNPb/URyjlfcW0uZxgy6Lqa9tGdKW0X+SlHkL76D8B2TakC0ZbQv6yTwLzxg79cXvzibarmsmB2G6W0pbgAJYZoGwtmFr0mv1jRxTdZaKoNGCuQEmN3tDWrtEMcldoGfms8P5oOAejhFfFa/f5Xwb4vPqRJxer4z3UguzmCcDWwnxD0pTfdmKySg4kT1lH+a+hexHD3THR5HpbONNsxm+blAPU7M4rWmH8rzdOovdaaekXKMsVuqDx76ojqhT5ITlt4938z8R6zpQBb73IpbMXGR3KFWfeOgLSqc52An5jfAd0qzl5VBud6QZk3J8ru48ZGC/ag0GpWeRGVmXMALrQmOi5Qqn8QXB8AswhZthir3rj56cqcB1RSXFOIYfRQU/gdYs38sKOJxVqctO6WLloXZLgrxJMmiK0N7fM4gsAv5JwTMGB/tPBr4wD3VegLGe/lYYxXr3v/uokW6gCz1G1EBc7F59SDDg6wlBfrz/4b9Q="/>
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-1980516351496812~4354438209" />
+
+        <activity android:name="com.bsq.bsquared.VoiceSkinsActivity"
+            android:label="Set audio">
+        </activity>
+        <activity android:name="com.bsq.bsquared.VoicePackagesActivity"
+            android:label="Download new voice">
+        </activity>
+    </application>
+
+</manifest>

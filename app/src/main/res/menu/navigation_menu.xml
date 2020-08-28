@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/chatroom"
+        android:icon="@drawable/ic_baseline_message_24"
+        android:title="@string/local_chat"/>
+    <item android:id="@+id/events"
+        android:icon="@drawable/ic_baseline_emoji_people_24"
+        android:title="@string/events"/>
+    <item android:id="@+id/add_event"
+        android:icon="@drawable/ic_baseline_post_add_24"
+        android:title="@string/add_event_string"/>
+    <item android:id="@+id/hosted_event"
+        android:icon="@drawable/ic_baseline_event_available_24"
+        android:title="@string/my_hosted_event"/>
+
+</menu>
