@@ -176,8 +176,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
+public class MainActivity extends AppCompatActivity {
     String TAG = MainActivity.class.getSimpleName();
     Button btnverifyCaptcha;
     String SITE_KEY = "6LfYFr0ZAAAAAAxB-X0KotuWtVIT9lPL_uWa3Pmq";
@@ -252,9 +251,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View view) {
-
-
+                findViewById(R.id.loadingPanel).setVisibility(View.VISIBLE);
                 auto_loc.setVisibility(View.INVISIBLE);
+
                 TextView zip_text = (TextView) findViewById(R.id.zip_text);
                 zip_text.setVisibility(View.VISIBLE);
                 try {
@@ -324,14 +323,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     zipcode = e+"";
                     Log.e("ERROR",""+e);
                 }
-//
+
                 String total = "You're set to " + zip_from_string(zipcode);
                 zip_text.setText(total);
+                findViewById(R.id.loadingPanel).setVisibility(View.INVISIBLE);
 
                 auto_loc_bool = true;
                 if (created_user && auto_loc_bool) {
-                    Button robot_btn = (Button) findViewById(R.id.robot);
-                    robot_btn.setVisibility(View.VISIBLE);
+                    start_captcha();
                 }
             }
         });
@@ -379,9 +378,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        btnverifyCaptcha = findViewById(R.id.robot);
-        btnverifyCaptcha.setOnClickListener(this);
-
         queue = Volley.newRequestQueue(getApplicationContext());
     }
 
@@ -419,8 +415,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                                 created_user = true;
                                 if (created_user && auto_loc_bool) {
-                                    Button robot_btn = (Button) findViewById(R.id.robot);
-                                    robot_btn.setVisibility(View.VISIBLE);
+                                    start_captcha();
                                 }
                             }
                         }
@@ -428,9 +423,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
     }
 
-    @Override
-    public void onClick(View view) {
-        findViewById(R.id.robot).setVisibility(View.INVISIBLE);
+    public void start_captcha() {
         findViewById(R.id.loadingPanel).setVisibility(View.VISIBLE);
 
         SafetyNet.getClient(this).verifyWithRecaptcha(SITE_KEY)
@@ -454,8 +447,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
                     }
                 });
-
     }
+
     protected void handleSiteVerify(final String responseToken){
         String url = "https://www.google.com/recaptcha/api/siteverify";
         StringRequest request = new StringRequest(Request.Method.POST, url,
@@ -507,6 +500,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         queue.add(request);
     }
-
-
+    //disable back button
+    @Override
+    public void onBackPressed() {}
 }

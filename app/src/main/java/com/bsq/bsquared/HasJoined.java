@@ -27,12 +27,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
-/**
- * Main activity which launches map view and handles Android run-time requesting permission.
- */
-
-
-
 public class HasJoined extends AppCompatActivity {
 
     private final static int REQUEST_CODE_ASK_PERMISSIONS = 1;
@@ -128,10 +122,6 @@ public class HasJoined extends AppCompatActivity {
                 }
             }
         });
-
-        //variable for joined event location so we don't have to query database again
-        SharedPreferences get_pref = getSharedPreferences("joined_event_loc", Context.MODE_PRIVATE);
-        String joined_event_loc = get_pref.getString("joined_event_loc", "");
 
         if (hasPermissions(this, RUNTIME_PERMISSIONS)) {
             setupMapFragmentView();

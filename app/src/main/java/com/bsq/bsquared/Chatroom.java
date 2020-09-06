@@ -255,4 +255,8 @@ public class Chatroom extends AppCompatActivity {
         super.onStop();
         chatadapter.stopListening();
     }
+
+    //disable back button
+    @Override
+    public void onBackPressed() {}
 }
