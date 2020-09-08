@@ -55,6 +55,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -367,18 +368,35 @@ class MapFragmentView {
                                 m_map.zoomTo(m_geoBoundingBox, Map.Animation.NONE,
                                         Map.MOVE_PRESERVE_ORIENTATION);
 
+                                m_activity.findViewById(R.id.loadingPanel).setVisibility(View.GONE);
                                 startNavigation();
                             } else {
                                 Toast.makeText(m_activity,
-                                        "Error:route results returned is not valid",
+                                        "Loading... Please wait :-)",
                                         Toast.LENGTH_LONG).show();
+
+                                m_activity.findViewById(R.id.naviCtrlButton).setSoundEffectsEnabled(false);
+                                //click automatically after 3 secs
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        m_activity.findViewById(R.id.naviCtrlButton).performClick();
+                                    }
+                                }, 3000);
                             }
                         } else {
                             Toast.makeText(m_activity,
-                                    "Error:route calculation returned error code: "
-                                            + routingError,
+                                    "Loading... Please wait :-)",
                                     Toast.LENGTH_LONG).show();
 
+                            m_activity.findViewById(R.id.naviCtrlButton).setSoundEffectsEnabled(false);
+                            //click automatically after 3 secs
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    m_activity.findViewById(R.id.naviCtrlButton).performClick();
+                                }
+                            }, 3000);
                         }
                     }
                 });
@@ -402,6 +420,7 @@ class MapFragmentView {
                  *
                  */
 
+                m_activity.findViewById(R.id.loadingPanel).setVisibility(View.VISIBLE);
                 m_activity.findViewById(R.id.be_there).setVisibility(View.GONE);
                 m_activity.findViewById(R.id.textView10).setVisibility(View.GONE);
                 m_activity.findViewById(R.id.textView11).setVisibility(View.GONE);
@@ -414,6 +433,7 @@ class MapFragmentView {
                     /*
                      * Restore the map orientation to show entire route on screen
                      */
+                    m_activity.findViewById(R.id.loadingPanel).setVisibility(View.GONE);
                     m_map.zoomTo(m_geoBoundingBox, Map.Animation.NONE, 0f);
                     m_naviControlButton.setText(R.string.start_navi);
                     m_route = null;
